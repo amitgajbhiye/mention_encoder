@@ -35,8 +35,10 @@ def get_sentences(text_file, con_file, num_sents, outfile_name):
                         pass
                         # print(f"{con} : not_found")
                 no_sent_found.append(con)
+                print(f"no_sent_found : {con}", flush=True)
+                print(flush=True)
 
-    print(f"no_sent_found : {no_sent_found}")
+    print(f"no_sent_found list: {no_sent_found}")
 
 
 inp_text_file = "/scratch/c.scmag3/en_wikipedia/en_wikipedia.txt"
