@@ -8,6 +8,7 @@ def get_sentences(text_file, con_file, num_sents, outfile_name):
     cons = [line.rstrip() for line in open(con_file)]
 
     print(f"num_concepts : {len(cons)}", flush=True)
+    no_sent_found = []
 
     with open(outfile_name, "w") as out_file:
         for idx, con in enumerate(cons):
@@ -33,6 +34,9 @@ def get_sentences(text_file, con_file, num_sents, outfile_name):
                     else:
                         pass
                         # print(f"{con} : not_found")
+                no_sent_found.append(con)
+
+    print(f"no_sent_found : {no_sent_found}")
 
 
 inp_text_file = "/scratch/c.scmag3/en_wikipedia/en_wikipedia.txt"
