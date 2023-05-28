@@ -5,7 +5,7 @@ sys.path.insert(0, os.getcwd())
 
 
 def get_sentences(text_file, con_file, num_sents, outfile_name):
-    cons = [line.rstrip() for line in open(con_file)]
+    cons = [line.rstrip() for line in open(con_file)][0:2]
 
     print(f"num_concepts : {len(cons)}", flush=True)
 
