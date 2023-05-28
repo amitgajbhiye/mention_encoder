@@ -11,21 +11,27 @@ def get_sentences(text_file, con_file, num_sents, outfile_name):
 
     with open(outfile_name, "w") as out_file:
         with open(text_file, "r") as inp_file:
-            for con in cons:
+            for idx, con in enumerate(cons):
+                print(flush=True)
+                print(f"processing_con : {con}, {idx}/{len(cons)}")
+
                 SENT_COUNTS = 0
 
                 for sent in inp_file:
                     if con in sent.split():
-                        print(con, sent.strip(), flush=True)
+                        print(SENT_COUNTS, con, sent.strip(), flush=True)
 
-                        out_file.write(f"{con}\t{sent.strip()}")
+                        out_file.write(f"{con}\t{sent.strip()}\n")
 
                         SENT_COUNTS += 1
 
                         if SENT_COUNTS >= num_sents:
                             print(f"sent_count : {SENT_COUNTS}", flush=True)
-                            print(flush=True)
+                            print(f"breaking_out", flush=True)
+                            print
                             break
+                    else:
+                        print(f"{con} : not_found")
 
 
 inp_text_file = "/scratch/c.scmag3/en_wikipedia/en_wikipedia.txt"
