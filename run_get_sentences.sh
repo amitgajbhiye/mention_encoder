@@ -9,11 +9,10 @@
 #SBATCH --ntasks=5
 #SBATCH -A scw1858
 
-#SBATCH -p compute
+#SBATCH -p highmem
 
-
-#SBATCH --mem=16G
-#SBATCH -t 0-00:30:00
+#SBATCH --mem=30G
+#SBATCH -t 3-00:00:00
 
 conda activate venv
 
